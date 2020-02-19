@@ -1,0 +1,25 @@
+##simple-docker
+
+
+#we create a folder named simple-docker
+
+#we create a folder named src and a file named  index.php that say "hello, World"
+/src/index.php
+
+
+#we create a Dockerfile
+and we set the container listen to port 80, to copy the image from src folder to /var/www/html and to get php and apache from repository
+
+#we build the image in the current folder and using the tag "hello world"
+docker build . -t hello-world
+
+#we run the image and start the container through the ports 80
+docker run -p 80:80 hello-world
+
+#we can check the apache server is working in localhost in the browser
+
+#CONTROL+C to stop the container
+
+#we set the container to link our image's folder to pick and refresh our setting to run the containers
+so we can change php file at any time and see the changes on live
+docker run -p 80:80 -v /home/chesny/Documents/simple-docker/src/:/var/www/html hello-world
